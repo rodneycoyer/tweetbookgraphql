@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tweetbookgraphql-dev-144119-authRole",
+      "UnauthRoleArn": "arn:aws:iam::502355007045:role/amplify-tweetbookgraphql-dev-144119-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::502355007045:role/amplify-tweetbookgraphql-dev-144119-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-tweetbookgraphql-dev-144119-deployment",
+      "UnauthRoleName": "amplify-tweetbookgraphql-dev-144119-unauthRole",
+      "StackName": "amplify-tweetbookgraphql-dev-144119",
+      "StackId": "arn:aws:cloudformation:us-west-2:502355007045:stack/amplify-tweetbookgraphql-dev-144119/6c3ccc30-d7bc-11ec-96f4-02b64ea24ea7",
+      "AmplifyAppId": "d3pr0ht2kp48g6"
+    },
+    "categories": {
+      "auth": {
+        "tweetbookgraphqlc3c7e63b": {}
+      }
+    }
+  }
+}
