@@ -1,20 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import "./styles/index.css";
+// MUI theme
+import { darkTheme } from "./styles/theme.jsx";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import CssBaseline from "@mui/material/CssBaseline";
+// App
+import App from "./App";
+import reportWebVitals from "./utils/reportWebVitals";
 // AWS Amplify
 import awsConfig from "./aws-exports";
-import Amplify from 'aws-amplify';
+import Amplify from "aws-amplify";
 import { AmplifyProvider } from "@aws-amplify/ui-react";
 Amplify.configure(awsConfig);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AmplifyProvider>
-      <App />
-    </AmplifyProvider>
+    <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
+      <AmplifyProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AmplifyProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

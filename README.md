@@ -1,8 +1,37 @@
-# Getting Started with Create React App
+# Tweetbook - Amplify
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Styling created with Material UI.
+
+The backend was created using AWS Amplify, Cognito, AppSync, DynamoDB, S3, and OpenSearch.
+
+The stack is managed by CloudFormation and deployed from an S3 hosting bucket to CloudFront's CDN.
+
+
+App Features:
+* Authentication
+  * username & password
+  * email verification
+  * Cognito user-pools, IAM, API Key
+  * json web-tokens
+* CRUD Posts
+  * GraphQL queries
+  * schema directives
+      * model
+      * auth - CRUD rules
+      * primaryKey, index
+* DynamoDB
+  * tables automatically created from schema @model directive.
+  * takes advantage a table query speeds.
+  * Integrates with AWS OpenSearch.
+
+
+
+
+## Fork then Clone the project then...
+
+### `npm install`
 
 In the project directory, you can run:
 
