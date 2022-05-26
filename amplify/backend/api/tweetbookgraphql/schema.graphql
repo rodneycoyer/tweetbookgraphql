@@ -3,10 +3,8 @@
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
 type Post
-	@model(
-		subscriptions: { level: public } # disable subscriptions.
-	)
-	@searchable #enable directive for OpenSearch.
+	@model
+	@searchable #enable OpenSearch stream.
 	@auth(
 		rules: [
 			{ allow: public } # allow auth IAM or API key CRUD access
@@ -14,12 +12,17 @@ type Post
 			{ allow: owner } # allow owner to CRUD any post
 		]
 	) {
-	# id auto-generated in DynamoDB
-	id: ID
+	# sort DynamoDB ID by createdAt
+	id: ID @index(name: "byCreatedAt", queryField: "byCreatedAt" sortKeyFields: ["owner"])
 	# post content
 	content: String!
 	# owner generated from Cognito
-	owner: String
+	owner: String @index(name: "sortByOwner", queryField: "sortByOwner" sortKeyFields: ["id"])
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
+}
+
+# create custom subscription for Global Posts
+type Subscription {
+	newOnCreatePost: Post @aws_subscribe(mutations: ["createPost"])
 }
